@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-
+import Header from "../../components/template/Header/Header";
 import { AuthContext } from "../../contexts/Auth";
 
 import { getUsers } from "../../services/api";
@@ -26,17 +26,12 @@ const Home = () => {
   }
 
   return (
-    <>
-      <h1>Home Page</h1>
-      <button onClick={handleLogout}>SAIR</button>
-      <ul>
-        {users.map((user) => (
-          <li key={user.id}>
-            {user.id} - { user.email}
-          </li>
-        ))}
-      </ul>
-    </>
+   <div>
+    <Header />
+    <div id="home">
+    <h1>teste</h1>
+    </div>
+   </div>
   );
 };
 

@@ -7,6 +7,10 @@ import {
 import React, { useContext } from "react";
 import Login from "./pages/Login/Login";
 import Home from "./pages/Home/Home";
+import Servico from "./pages/Servico/Servico";
+import Prestador from "./pages/Prestador/Prestador";
+import Pessoa from "./pages/Pessoa/Pessoa";
+
 
 import { AuthProvider, AuthContext } from "./contexts/Auth";
 
@@ -25,6 +29,7 @@ const AppRoutes = () => {
     return children;
   };
   return (
+    
     <Router>
       <AuthProvider>
         <Routes>
@@ -35,6 +40,33 @@ const AppRoutes = () => {
             element={
               <Private>
                 <Home />
+              </Private>
+            }
+          />
+          <Route
+            exact
+            path="/prestador"
+            element={
+              <Private>
+                <Prestador />
+              </Private>
+            }
+          />
+          <Route
+            exact
+            path="/pessoa"
+            element={
+              <Private>
+                <Pessoa />
+              </Private>
+            }
+          />
+          <Route
+            exact
+            path="/servico"
+            element={
+              <Private>
+                <Servico />
               </Private>
             }
           />
