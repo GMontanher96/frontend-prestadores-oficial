@@ -19,7 +19,7 @@ function Header() {
         <Navbar.Brand href="#home">Prestadores WEB</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
+          <Nav className="justify-content-center">
             <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="servico">Serviços</Nav.Link>
           </Nav>

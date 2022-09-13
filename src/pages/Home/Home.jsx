@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import Header from "../../components/template/Header/Header";
 import { AuthContext } from "../../contexts/Auth";
-
+import Carrosel from "../../components/carrosel/Carrosel"
 import { getUsers } from "../../services/api";
 
 const Home = () => {
@@ -29,7 +29,7 @@ const Home = () => {
    <div>
     <Header />
     <div id="home">
-    <h1>teste</h1>
+    <Carrosel />
     </div>
    </div>
   );

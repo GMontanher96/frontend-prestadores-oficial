@@ -22,6 +22,10 @@ body {
     height: 100vh;
     font-family: Arial, Helvetica, sans-serif
 }
+
+label {
+    text-align: center;
+}
 `;
 
 export default GlobalStyle;
