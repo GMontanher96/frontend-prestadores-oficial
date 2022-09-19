@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const api = axios.create({
-    baseURL: 'http://localhost:4000',
+    baseURL: 'http://localhost:3000',
 });
 
 export const createSession = async (email, password) => {
@@ -10,4 +10,8 @@ export const createSession = async (email, password) => {
 
 export const getUsers = async() => {
     return api.get("/users");
+}
+
+export const getServicos = async() => {
+    return api.get("/servicos");
 }

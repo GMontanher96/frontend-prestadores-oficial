@@ -1,6 +1,16 @@
-#image {
-    max-width: 400px;
-    max-height: 350px;
-    width: auto;
-    height: auto;
+.carrosel {
+    width: 800px;
+    height: 400px;
+    position: center;
+
 }
+.imgperfil {
+    margin-left: auto;
+    margin-right: auto;
+    width: 5em
+}
+
+
+header div {
+    background-color: black;
+  }

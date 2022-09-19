@@ -9,7 +9,7 @@ import Login from "./pages/Login/Login";
 import Home from "./pages/Home/Home";
 import Servico from "./pages/Servico/Servico";
 import Prestador from "./pages/Prestador/Prestador";
-import Pessoa from "./pages/Pessoa/Pessoa";
+// import Pessoa from "./pages/Pessoa/Pessoa";
 
 
 import { AuthProvider, AuthContext } from "./contexts/Auth";
@@ -57,8 +57,7 @@ const AppRoutes = () => {
             path="/pessoa"
             element={
               <Private>
-                <Pessoa />
-              </Private>
+               </Private>
             }
           />
           <Route

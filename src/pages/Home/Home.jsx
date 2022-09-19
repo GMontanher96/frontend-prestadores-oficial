@@ -3,6 +3,11 @@ import Header from "../../components/template/Header/Header";
 import { AuthContext } from "../../contexts/Auth";
 import Carrosel from "../../components/carrosel/Carrosel"
 import { getUsers } from "../../services/api";
+import Pesquisa from "../../components/Pesquisa";
+import { Container } from "react-bootstrap";
+import PrestadorCard from "../../components/toasts/PrestadorCard";
+import BotaoServico from "../../components/toasts/BotaoServico";
+
 
 const Home = () => {
   const { logout } = useContext(AuthContext);
@@ -27,10 +32,15 @@ const Home = () => {
 
   return (
    <div>
+    <Container>
     <Header />
+    <Pesquisa />
     <div id="home">
     <Carrosel />
+    <BotaoServico/>
+    <PrestadorCard />
     </div>
+    </Container>
    </div>
   );
 };
