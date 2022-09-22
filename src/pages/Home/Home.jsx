@@ -38,7 +38,6 @@ const Home = () => {
     <div id="home">
     <Carrosel />
     <BotaoServico/>
-    <PrestadorCard />
     </div>
     </Container>
    </div>

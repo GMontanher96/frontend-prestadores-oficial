@@ -1,16 +1,30 @@
 .carrosel {
     width: 800px;
-    height: 400px;
+    height: 450px;
     position: center;
+    margin: 15px
 
 }
-.imgperfil {
-    margin-left: auto;
-    margin-right: auto;
-    width: 5em
+.cardServ {
+    margin-right: 2em;
+    
+    
+}
+.imgServ{
+    width: 0px;
+    margin: 0px
 }
 
+.botaoServ {
+    margin-bottom: 1em;
+ 
 
-header div {
-    background-color: black;
-  }
+}
+.font-botao{
+    font-style: italic;
+    color: #2F3440
+}
+.d-flex{
+    width: 40em;
+    position: center;
+}

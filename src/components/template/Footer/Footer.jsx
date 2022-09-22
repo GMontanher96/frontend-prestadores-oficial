@@ -14,7 +14,7 @@ export default function App() {
       <MDBContainer className="p-4 pb-0"></MDBContainer>
       <div
         className="text-center p-3"
-        style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}
+        style={{ backgroundColor: "#2F3440" }}
       >
         © 2022 Copyright
       </div>

@@ -1,17 +1,17 @@
 import Carousel from 'react-bootstrap/Carousel';
 import img1 from "../../image/1.jpg";
-import img2 from "../../image/2.jpeg";
-import img3 from "../../image/3.jpeg";
+import img2 from "../../image/2.jpg";
+import img3 from "../../image/3.jpg";
 
 
 function Carrosel() {
   return (
+    <div > 
     <Carousel>
       <Carousel.Item>
         <img
-          className="carrosel"
+          className = 'carrosel'
           src={img1}
-          alt="First slide"
         />
         <Carousel.Caption>
           <h3>First slide label</h3>
@@ -22,7 +22,6 @@ function Carrosel() {
         <img
           className="carrosel"
           src={img2}
-          alt="Second slide"
         />
 
         <Carousel.Caption>
@@ -34,7 +33,6 @@ function Carrosel() {
         <img
           className="carrosel"
           src={img3}
-          alt="Third slide"
         />
 
         <Carousel.Caption>
@@ -45,6 +43,7 @@ function Carrosel() {
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>
+    </div> 
   );
 }
 
