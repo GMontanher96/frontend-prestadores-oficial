@@ -1,12 +1,12 @@
 import React, { useState, useContext } from "react";
 import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 import { AuthContext } from "../../contexts/Auth";
 import "./style.css";
 
 const Login = () => {
-
-const { authenticated, login } = useContext(AuthContext);
+  const { authenticated, login } = useContext(AuthContext);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -14,7 +14,7 @@ const { authenticated, login } = useContext(AuthContext);
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    console.log("submit", {email, password});
+    console.log("submit", { email, password });
     login(email, password); // integraçaõ com o meu contexto / api
   };
 
@@ -46,7 +46,12 @@ const { authenticated, login } = useContext(AuthContext);
           />
         </div>
         <div className="actions">
-          <Button type="submit" variant="danger">Entrar</Button>{' '}
+          <Button type="submit" variant="danger">
+            Entrar
+          </Button>{" "}
+          <Button type="button" variant="success">
+          <Link to="/signin"><p className="register">CADASTRAR</p></Link>
+          </Button>{" "}
         </div>
       </form>
     </div>

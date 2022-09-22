@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import React, { useContext } from "react";
 import Login from "./pages/Login/Login";
+import Signin from "./pages/Login/Signin";
 import Home from "./pages/Home/Home";
 import Servico from "./pages/Servico/Servico";
 import Prestador from "./pages/Prestador/Prestador";
@@ -34,6 +35,7 @@ const AppRoutes = () => {
       <AuthProvider>
         <Routes>
           <Route exact path="/login" element={<Login />} />
+          <Route path="/signin" element={<Signin />} />
           <Route
             exact
             path="/"
