@@ -5,10 +5,9 @@ export default function Pesquisa (){
               <FormControl
                 type="Search"
                 placeholder="Procure um prestador próximo de você!"
-                className="me-2"
                 aria-label="Search"
               />
-              <Button variant="outline-success">Pesquisar</Button>
+              <Button variant="secondary m-2 p-2">Pesquisar</Button>
             </Form>
     )
 }

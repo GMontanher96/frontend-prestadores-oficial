@@ -1,12 +1,25 @@
-import Button from 'react-bootstrap/Button';
-import ButtonGroup from 'react-bootstrap/ButtonGroup';
+import { Tab, Tabs } from "react-bootstrap";
+import PrestadorCard from "./PrestadorCard";
 
-export default function  BotaoServico(){
-    return (
-    <ButtonGroup aria-label="Basic example">
-      <Button variant="Faxina">Left</Button>
-      <Button variant="Pintura">Middle</Button>
-      <Button variant="Manutenção">Right</Button>
-    </ButtonGroup>
-
-)};
+export default function BotaoServico() {
+  return (
+    <div className="botaoServ">
+      <Tabs
+        defaultActiveKey="faxina"
+        id="fill-tab-example"
+        className="mb-3"
+        fill
+      >
+        <Tab eventKey="faxina" title="Faxina">
+          <PrestadorCard />
+        </Tab>
+        <Tab eventKey="pintura" title="Pintura">
+        <PrestadorCard />
+        </Tab>
+        <Tab eventKey="manutencao" title="Manutenção">
+        <PrestadorCard />
+        </Tab>
+      </Tabs>
+    </div>
+  );
+}

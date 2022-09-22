@@ -16,7 +16,7 @@ function Header() {
   return (
     <Navbar bg="light" expand="lg">
       <Container>
-        <Navbar.Brand href="#home">Prestadores WEB</Navbar.Brand>
+        <Navbar.Brand href="#home"> <i class="bi bi-tools m-2"></i>Prestadores WEB</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="justify-content-center">
