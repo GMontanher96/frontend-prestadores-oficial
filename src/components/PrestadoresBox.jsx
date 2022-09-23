@@ -1,7 +1,8 @@
 import { Tab, Tabs } from "react-bootstrap";
-import PrestadorCard from "./PrestadorCard";
+import PrestadorList from "./PrestadorList";
 
-export default function BotaoServico() {
+export default function PrestadoresBox({ prestadores }) {
+  if (!prestadores) return <div>Carregando ...</div>;
   return (
     <div className="botaoServ">
       <Tabs
@@ -11,13 +12,13 @@ export default function BotaoServico() {
         fill
       >
         <Tab eventKey="faxina" title="Faxina">
-          <PrestadorCard />
+          <PrestadorList prestadores={prestadores} />
         </Tab>
         <Tab eventKey="pintura" title="Pintura">
-        <PrestadorCard />
+          <PrestadorList prestadores={prestadores} />
         </Tab>
         <Tab eventKey="manutencao" title="Manutenção">
-        <PrestadorCard />
+          <PrestadorList prestadores={prestadores} />
         </Tab>
       </Tabs>
     </div>

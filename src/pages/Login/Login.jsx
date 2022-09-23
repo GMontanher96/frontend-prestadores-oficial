@@ -1,6 +1,8 @@
 import React, { useState, useContext } from "react";
-import { Button } from "react-bootstrap";
+import { Button, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import Figure from 'react-bootstrap/Figure';
+import img8 from "../../image/8.jpg";
 
 import { AuthContext } from "../../contexts/Auth";
 import "./style.css";
@@ -19,11 +21,17 @@ const Login = () => {
   };
 
   return (
-    <div id="login">
+    <div id="login" className="container">
+      <Figure.Image
+        width={250}
+        height={250}
+        alt="171x180"
+        src={img8}
+      />
       <h1 className="title">Presta Serviço Web</h1>
       <form className="form" onSubmit={handleSubmit}>
         <div className="field">
-          <label htmlFor="email">EMAIL</label>
+          <label htmlFor="email">Email</label>
           <input
             type="email"
             name="email"
@@ -35,7 +43,7 @@ const Login = () => {
           />
         </div>
         <div className="field">
-          <label htmlFor="password">SENHA</label>
+          <label htmlFor="password">Senha</label>
           <input
             type="password"
             name="password"
@@ -46,12 +54,10 @@ const Login = () => {
           />
         </div>
         <div className="actions">
-          <Button type="submit" variant="danger">
+          <Button type="submit" variant="success">
             Entrar
           </Button>{" "}
-          <Button type="button" variant="success">
-          <Link to="/signin"><p className="register">CADASTRAR</p></Link>
-          </Button>{" "}
+          <Button as={Link} to="/signin" type="button" variant="danger">Cadastrar</Button>{" "}
         </div>
       </form>
     </div>

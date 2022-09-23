@@ -4,6 +4,7 @@ import axios from "axios";
 
 import { AuthContext } from "../../contexts/Auth";
 import "./style.css";
+import { Link } from "react-router-dom";
 
 const Signin = () => {
 
@@ -34,7 +35,7 @@ const { authenticated, login } = useContext(AuthContext);
     e.preventDefault();
 
     try {
-        axios.post("http://localhost:4000/users", dataUser, {
+        axios.post("https://prestaservico-backend.herokuapp.com/users", dataUser, {
           mode: 'no-cors'
         })
         .then((res) =>
@@ -123,6 +124,9 @@ const { authenticated, login } = useContext(AuthContext);
         </div>
         <div className="actions">
           <Button type="submit" variant="success">Cadastrar</Button>{' '}
+          <Button as= {Link} to="/login" type="button" variant="danger">
+          Voltar</Button>{" "}
+
         </div>
      
       </form>

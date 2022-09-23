@@ -16,7 +16,6 @@ const App = () => {
       <div className="app">
         <AppRoutes />
         <GlobalStyle />
-        <Footer />
       </div>
     </ThemeProvider>
   );

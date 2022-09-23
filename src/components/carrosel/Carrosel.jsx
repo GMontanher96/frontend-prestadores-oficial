@@ -10,7 +10,7 @@ function Carrosel() {
     <Carousel>
       <Carousel.Item>
         <img
-          className = 'carrosel'
+          className = 'carrosel img-fluid'
           src={img1}
         />
         <Carousel.Caption>
@@ -20,7 +20,7 @@ function Carrosel() {
       </Carousel.Item>
       <Carousel.Item>
         <img
-          className="carrosel"
+          className="carrosel img-fluid"
           src={img2}
         />
 
@@ -31,7 +31,7 @@ function Carrosel() {
       </Carousel.Item>
       <Carousel.Item>
         <img
-          className="carrosel"
+          className="carrosel img-fluid"
           src={img3}
         />
 
