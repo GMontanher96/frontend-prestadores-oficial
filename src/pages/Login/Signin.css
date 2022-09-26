@@ -1,0 +1,54 @@
+.form-sg {
+    display: flex;
+    flex-direction: column;
+    width: 400px !important;
+    height: 560px;
+    align-items: center;
+    justify-content: center;
+    padding: 0 2rem;
+    background-image: url(../../../public/image/fundo-lg.jpg);
+    border-radius: 30px;
+    position: relative;
+    top: 0px;
+}
+
+.form-sg1 {
+    width: 100%;
+    max-width: 400px;
+    padding: 0.5rem;
+    position: fixed;
+    top: 205px;
+}
+
+.fundo-sg {
+    background-image: url(../../../public/image/fundo-sg.jpg);
+    background-repeat: no-repeat;
+    background-size:100%;
+    bottom: 0;
+    color: black;
+    left: 0;
+    overflow: auto;
+    padding: 3em;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 0;
+    background-size: cover;
+}
+
+.logo-esc1 {
+    background-image: url(../../../public/image/logo3.png);
+    background-size: 333px;
+    background-repeat: no-repeat;
+    position: fixed;
+    top: 80px;
+    width: 333px;
+    height: 144px;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+label {
+    text-align: center;
+    color: rgb(112, 110, 110);
+}

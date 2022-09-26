@@ -1,11 +1,10 @@
 import React, { useState, useContext } from "react";
 import { Button, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import Figure from 'react-bootstrap/Figure';
-import img8 from "../../image/8.jpg";
 
 import { AuthContext } from "../../contexts/Auth";
-import "./style.css";
+import "./Login.css";
+import Logo from "../../components/logo/Logo";
 
 const Login = () => {
   const { authenticated, login } = useContext(AuthContext);
@@ -21,17 +20,12 @@ const Login = () => {
   };
 
   return (
-    <div id="login" className="container">
-      <Figure.Image
-        width={250}
-        height={250}
-        alt="171x180"
-        src={img8}
-      />
-      <h1 className="title">Presta Serviço Web</h1>
-      <form className="form" onSubmit={handleSubmit}>
+    <div className="fundo-lg">
+    <div id="login" className="container form-lg">
+      <Logo />
+      <div className="logo-esc" />
+      <form className="form form-lg1" onSubmit={handleSubmit}>
         <div className="field">
-          <label htmlFor="email">Email</label>
           <input
             type="email"
             name="email"
@@ -43,7 +37,6 @@ const Login = () => {
           />
         </div>
         <div className="field">
-          <label htmlFor="password">Senha</label>
           <input
             type="password"
             name="password"
@@ -57,9 +50,12 @@ const Login = () => {
           <Button type="submit" variant="success">
             Entrar
           </Button>{" "}
-          <Button as={Link} to="/signin" type="button" variant="danger">Cadastrar</Button>{" "}
+          <Button as={Link} to="/signin" type="button" variant="danger">
+            Cadastrar
+          </Button>{" "}
         </div>
       </form>
+    </div>
     </div>
   );
 };

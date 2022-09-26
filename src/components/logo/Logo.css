@@ -1,0 +1,51 @@
+.form-logo0 {
+    width: 280px;
+    height: 280px;
+    margin: 0px;
+    border-radius: 50%;
+    margin-left: auto;
+    margin-right: auto; 
+    position: fixed;
+    top: 80px;
+}
+
+.logo {
+    animation: load 555s linear infinite ;
+}
+
+@keyframes load {
+    to {
+        transform: rotate(-360deg);
+    }
+}
+
+.form-logo1 {
+    border-radius: 50%;
+    background-color: rgb(128, 134, 187);
+    background-image: url(../../../public/image/logo1.png);
+    background-size: 160px;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    width: 160px;
+    height: 160px;
+    position: relative;
+    top: -209px;
+    left: 60px;
+    margin: 0px;
+}
+
+.form-logo1:hover {
+    border-radius: 50%;
+    background-color: rgb(128, 134, 187);
+    background-image: url(../../../public/image/logo1.gif);
+    background-size: 160px;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    width: 160px;
+    height: 160px;
+    position: relative;
+    top: -209px;
+    left: 60px;
+    margin: 0px;
+    cursor: pointer;
+}
