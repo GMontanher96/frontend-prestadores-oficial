@@ -3,12 +3,11 @@ import { Button } from "react-bootstrap";
 import axios from "axios";
 
 import { AuthContext } from "../../contexts/Auth";
-import "./style.css";
+import "./Signin.css";
 import { Link } from "react-router-dom";
 
 const Signin = () => {
-
-const { authenticated, login } = useContext(AuthContext);
+  const { authenticated, login } = useContext(AuthContext);
 
   const [user, setUser] = useState(null);
   const [id, setId] = useState(0);
@@ -28,35 +27,34 @@ const { authenticated, login } = useContext(AuthContext);
     confirmPassword: confirmPassword,
     provider: provider,
     admin: admin,
-    status: status
+    status: status,
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     try {
-        axios.post("https://prestaservico-backend.herokuapp.com/users", dataUser, {
-          mode: 'no-cors'
+      axios
+        .post("https://prestaservico-backend.herokuapp.com/users", dataUser, {
+          mode: "no-cors",
         })
-        .then((res) =>
-        alert("USUARIO CRIADO COM SUCESSO", res),
-        );
-        setEmail("");
-        setCpfCnpj("");
-        setPassword("");
-        setConfirmPassword("");
-        setCpfCnpj("");
-        setProvider("");
-      } catch (error) {
-      alert("OCORREU UM ERRO AO CRIAR UM USUÁRIO", error)
-      }
+        .then((res) => alert("USUARIO CRIADO COM SUCESSO", res));
+      setEmail("");
+      setCpfCnpj("");
+      setPassword("");
+      setConfirmPassword("");
+      setCpfCnpj("");
+      setProvider("");
+    } catch (error) {
+      alert("OCORREU UM ERRO AO CRIAR UM USUÁRIO", error);
+    }
   };
 
   return (
-    <div id="login">
-      <h1 className="title">Presta Serviço Web</h1>
-      <h1 className="title">Cadastra-se Gratis!</h1>
-      <form className="form" onSubmit={(handleSubmit)}>
+    <div className="fundo-sg">
+    <div id="login" className="container form-sg">
+    <div className="logo-esc1" />
+      <form className="form form-sg1" onSubmit={handleSubmit}>
         <div className="field">
           <label htmlFor="email">EMAIL</label>
           <input
@@ -107,9 +105,9 @@ const { authenticated, login } = useContext(AuthContext);
         </div>
         <div className="field">
           <label htmlFor="provider">PRESTADOR DE SERVIÇO ?</label>
-       
-           <select
-           value={provider}
+
+          <select
+            value={provider}
             class="field"
             id="provider"
             onChange={(e) => {
@@ -123,13 +121,15 @@ const { authenticated, login } = useContext(AuthContext);
           </select>
         </div>
         <div className="actions">
-          <Button type="submit" variant="success">Cadastrar</Button>{' '}
-          <Button as= {Link} to="/login" type="button" variant="danger">
-          Voltar</Button>{" "}
-
+          <Button type="submit" variant="success">
+            Cadastrar
+          </Button>{" "}
+          <Button as={Link} to="/login" type="button" variant="danger">
+            Voltar
+          </Button>{" "}
         </div>
-     
       </form>
+    </div>
     </div>
   );
 };
