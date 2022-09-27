@@ -65,30 +65,20 @@ export default function PerfilServicoCadastroPage() {
         <Form className="form" onSubmit={handleSubmit}>
           <h1 className="title"> Cadastro de Serviço </h1>
           <Form.Group className="m-1">
-            <label htmlFor="anuncio">Anúncio</label>
-
-            <textarea
-              col-sm-10
-              type="text"
-              name="anuncio"
-              id="anuncio"
+          <Form.Label>Anúnicio </Form.Label>
+            <Form.Control
               value={anuncio}
               onChange={(e) => setAnuncio(e.target.value)}
               placeholder="Anuncie seu serviço"
-              required
             />
           </Form.Group>
+          <Row>
           <Form.Group as={Col} className="m-1">
-            <label htmlFor="nomefantasia">Nome Fantasia</label>
-
-            <input
-              type="text"
-              name="nomefantasia"
-              id="nomefantasia"
+          <Form.Label>Nome Fantasia </Form.Label>
+            <Form.Control
               value={nomefantasia}
               onChange={(e) => setNomefantasia(e.target.value)}
               placeholder="Nome Fantasia"
-              required
             />
           </Form.Group>
           <Form.Group as={Col} className="m-1">
@@ -99,8 +89,7 @@ export default function PerfilServicoCadastroPage() {
               onChange={(e) => setCnpj(e.target.value)}
             />
           </Form.Group>
-
-          <Row>
+          </Row>
             <Form.Group as={Col} className="m-1">
               <Form.Label>Descrição</Form.Label>
               <Form.Control
@@ -109,7 +98,7 @@ export default function PerfilServicoCadastroPage() {
                 onChange={(e) => setDescricao(e.target.value)}
               />
             </Form.Group>
-
+            <Row>
             <Form.Group as={Col} className="m-1">
               <Form.Label>Disponibilidade</Form.Label>
               <Form.Control
@@ -118,63 +107,40 @@ export default function PerfilServicoCadastroPage() {
                 onChange={(e) => setDisponibilidade(e.target.value)}
               />
             </Form.Group>
-          </Row>
-          <Row>
             <Form.Group as={Col} className="m-1">
-              <label htmlFor="avaliacao">Avaliação</label>
-
-              <input
-                type="text"
-                name="avaliacao"
-                id="avaliacao"
+              <Form.Label>Avaliação</Form.Label>
+              <Form.Control
+                placeholder="Avaliação"
                 value={avaliacao}
                 onChange={(e) => setAvaliacao(e.target.value)}
-                placeholder="Avaliação"
-                required
               />
             </Form.Group>
             <Form.Group as={Col} className="m-1">
-              <label htmlFor="tipo">Tipo</label>
-
-              <input
-                type="text"
-                name="tipo"
-                id="tipo"
+            <Form.Label>Tipo</Form.Label>
+              <Form.Control
+                placeholder="Tipo"
                 value={tipo}
                 onChange={(e) => setTipo(e.target.value)}
-                placeholder="Tipo"
-                required
               />
             </Form.Group>
             <Form.Group as={Col} className="m-1">
-              <label htmlFor="valor">Valor</label>
-
-              <input
-                type="number"
-                name="valor"
-                id="valor"
+              <Form.Label>Valor</Form.Label>
+              <Form.Control
                 value={valor}
                 onChange={(e) => setValor(e.target.value)}
                 placeholder="Valor"
-                required
               />
             </Form.Group>
-          </Row>
-          <Row>
+            </Row>
             <Form.Group className="m-1">
-              <label htmlFor="cidade">Cidade</label>
-
-              <input
-                type="text"
-                name="cidade"
-                id="cidade"
+              <Form.Label>Cidade</Form.Label>
+              <Form.Control
                 value={cidade}
                 onChange={(e) => setCidade(e.target.value)}
                 placeholder="cidade"
-                required
               />
             </Form.Group>
-          </Row>
+
 
           <div className="actions m-2">
             <Button class="btn btn-success" type="submit" variant="success">
