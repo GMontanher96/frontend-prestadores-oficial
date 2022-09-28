@@ -16,7 +16,7 @@ function Usuario() {
 };
 
   const handleClickUsuario = () => {
-    axios.post('http://localhost:3000/users', values);
+    axios.post('https://prestaservico-backend.herokuapp.com/users', values);
   }
 
   return (
