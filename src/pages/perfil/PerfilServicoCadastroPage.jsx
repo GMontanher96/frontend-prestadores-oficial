@@ -72,7 +72,6 @@ export default function PerfilServicoCadastroPage() {
               placeholder="Anuncie seu serviço"
             />
           </Form.Group>
-          <Row>
           <Form.Group as={Col} className="m-1">
           <Form.Label>Nome Fantasia </Form.Label>
             <Form.Control
@@ -81,6 +80,8 @@ export default function PerfilServicoCadastroPage() {
               placeholder="Nome Fantasia"
             />
           </Form.Group>
+          <Row>
+         
           <Form.Group as={Col} className="m-1">
             <Form.Label>Cnpj</Form.Label>
             <Form.Control
