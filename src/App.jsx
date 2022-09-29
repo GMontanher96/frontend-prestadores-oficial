@@ -3,7 +3,6 @@ import AppRoutes from "./AppRoutes";
 import GlobalStyle from "./styles/global";
 import ThemeProvider from "react-bootstrap/ThemeProvider";
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
-import "./components/carrosel/style.css";
 
 
 const App = () => {

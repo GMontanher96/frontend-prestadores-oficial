@@ -1,0 +1,14 @@
+
+.footer-banner {
+    background-color: #3B5AA6 !important;
+    background-image: url(../../../../public/image/navbar.jpg);
+    background-size: cover;
+    width: 100%;
+}
+
+.footer-linha {
+    background-color: rgb(0, 0, 94) !important;
+    position: relative;
+    bottom: -166px;
+
+}
