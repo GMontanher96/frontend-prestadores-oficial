@@ -8,16 +8,17 @@ export default function PerfilServicoCadastroPage() {
   const { authenticated, login } = useContext(AuthContext);
 
   const [servico, setUser] = useState(null);
-  const [id, setId] = useState(0);
+  const [id, setId] = useState([0]);
+  const [UserId, setUserId] = useState([0]);
   const [anuncio, setAnuncio] = useState("");
   const [nomefantasia, setNomefantasia] = useState("");
   const [cnpj, setCnpj] = useState("");
   const [descricao, setDescricao] = useState("");
   const [disponibilidade, setDisponibilidade] = useState("");
-  const [avaliacao, setAvaliacao] = useState([0]);
-  const [tipo, setTipo] = useState([0]);
-  const [valor, setValor] = useState([0]);
-  const [cidade, setCidade] = useState([0]);
+  const [avaliacao, setAvaliacao] = useState("teste");
+  const [tipo, setTipo] = useState("");
+  const [valor, setValor] = useState("");
+  const [cidade, setCidade] = useState("");
 
   const dataService = {
     id: id,
@@ -30,6 +31,7 @@ export default function PerfilServicoCadastroPage() {
     tipo: tipo,
     valor: valor,
     cidade: cidade,
+    UserId: UserId
   };
 
   const handleSubmit = (e) => {
@@ -60,6 +62,7 @@ export default function PerfilServicoCadastroPage() {
   };
 
   return (
+    <Container p-6>
     <div id="serv">
       <Col md={6}>
         <Form className="form" onSubmit={handleSubmit}>
@@ -114,7 +117,8 @@ export default function PerfilServicoCadastroPage() {
                 placeholder="Avaliação"
                 value={avaliacao}
                 onChange={(e) => setAvaliacao(e.target.value)}
-              />
+                
+                />
             </Form.Group>
             <Form.Group as={Col} className="m-1">
             <Form.Label>Tipo</Form.Label>
@@ -141,18 +145,17 @@ export default function PerfilServicoCadastroPage() {
                 placeholder="cidade"
               />
             </Form.Group>
-
-
-          <div className="actions m-2">
+          <div className="actions m-3">
+            <Button className="m-3" as={Link} to="/login" type="button" variant="danger">
+              Voltar
+            </Button>
             <Button class="btn btn-success" type="submit" variant="success">
               Cadastrar
-            </Button>
-            <Button as={Link} to="/login" type="button" variant="danger">
-              Voltar
             </Button>
           </div>
         </Form>
       </Col>
     </div>
+    </Container>
   );
 }
