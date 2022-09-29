@@ -1,10 +1,12 @@
 import { Tab, Tabs } from "react-bootstrap";
 import PrestadorList from "./PrestadorList";
 
+import "../pages/Home/Home.css"
+
 export default function PrestadoresBox({ prestadores }) {
   if (!prestadores) return <div>Carregando ...</div>;
   return (
-    <div className="botaoServ">
+    <div className="botaoServ prestadores">
       <Tabs
         defaultActiveKey="faxina"
         id="fill-tab-example"

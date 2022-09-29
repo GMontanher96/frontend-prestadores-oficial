@@ -9,6 +9,8 @@ import PrestadorCard from "../../components/PrestadorCard";
 import BotaoServico from "../../components/PrestadoresBox";
 import PrestadoresBox from "../../components/PrestadoresBox";
 
+import "./Home.css"
+
 const Home = () => {
   const { logout } = useContext(AuthContext);
   const [users, setUsers] = useState([]);
@@ -46,7 +48,7 @@ const Home = () => {
   }
 
   return (
-    <div id="home">
+    <div id="home" className="home-cont">
       <Pesquisa />
       <Carrosel />
       <PrestadoresBox prestadores={prestadores} />

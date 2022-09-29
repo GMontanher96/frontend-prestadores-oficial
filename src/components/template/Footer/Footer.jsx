@@ -1,4 +1,5 @@
 import React from "react";
+import "./Footer.css";
 import {
   MDBFooter,
   MDBContainer,
@@ -10,14 +11,10 @@ import {
 
 export default function Footer() {
   return (
-    <MDBFooter className="bg-dark text-center text-white">
+    <MDBFooter className="text-center text-white footer-linha">
       <MDBContainer className="p-4 pb-0"></MDBContainer>
-      <div
-        className="text-center p-3"
-        style={{ backgroundColor: "#2F3440" }}
-      >
-    -  Meu Prestador WEB © 2022 Copyright
-      </div>
+      <div className="text-center p-3 footer-banner"
+        style={{ backgroundColor: "#2F3440" }}>Presta Serviço WEB © 2022 Copyright</div>
     </MDBFooter>
   );
 }
