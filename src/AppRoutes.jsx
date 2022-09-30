@@ -15,8 +15,10 @@ import { AuthProvider } from "./contexts/Auth";
 import PublicLayout from "./layouts/PublicLayout";
 import PerfilPage from "./pages/perfil/PerfilPage";
 import PerfilServicoPage from "./pages/perfil/PerfilServicoPage";
+import PerfilDetailsUserPage from "./pages/perfil/DetailsUser";
 import PerfilServicoCadastroPage from "./pages/perfil/PerfilServicoCadastroPage";
 import ServicoPage from "./pages/ServicoPage";
+import PrivateLayout from "./layouts/PrivateLayout";
 
 const AppRoutes = () => {
   
@@ -33,12 +35,16 @@ const AppRoutes = () => {
             <Route exact path="servicos" element={<ServicoPage />} />
           </Route>
 
-          <Route exact path="/perfil" element={<PublicLayout />}>
+          <Route exact path="/perfil" element={<PrivateLayout />}>
             <Route path="" element={<PerfilPage />} />
             <Route exact path="servicos" element={<PerfilServicoPage />} />
             <Route exact path="servicos/novo" element={<PerfilServicoCadastroPage />} />
           </Route>
-          
+
+          <Route exact path="/perfil" element={<PrivateLayout />}>
+            <Route exact path="usuario" element={<PerfilDetailsUserPage />} />
+          </Route>
+   
         </Routes>
       </AuthProvider>
     </Router>

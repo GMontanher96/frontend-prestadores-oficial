@@ -16,10 +16,10 @@ export default function PrestadoresBox({ prestadores }) {
         <Tab eventKey="faxina" title="Faxina">
           <PrestadorList prestadores={prestadores} />
         </Tab>
-        <Tab eventKey="pintura" title="Pintura">
+        <Tab eventKey="pintura" title="Marido de Aluguel">
           <PrestadorList prestadores={prestadores} />
         </Tab>
-        <Tab eventKey="manutencao" title="Manutenção">
+        <Tab eventKey="manutencao" title="Manutenções">
           <PrestadorList prestadores={prestadores} />
         </Tab>
       </Tabs>

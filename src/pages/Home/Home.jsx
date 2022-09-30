@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import Header from "../../components/template/Header/Header";
 import { AuthContext } from "../../contexts/Auth";
 import Carrosel from "../../components/carrosel/Carrosel";
-import { getUsers } from "../../services/api";
+import { getServicos } from "../../services/api";
 import Pesquisa from "../../components/Pesquisa";
 import { Container } from "react-bootstrap";
 import PrestadorCard from "../../components/PrestadorCard";
@@ -13,7 +13,7 @@ import "./Home.css"
 
 const Home = () => {
   const { logout } = useContext(AuthContext);
-  const [users, setUsers] = useState([]);
+  const [servicos, setServicos] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const [prestadores, setPrestadores] = useState([
@@ -33,8 +33,9 @@ const Home = () => {
 
   useEffect(() => {
     (async () => {
-      const response = await getUsers();
-      setUsers(response.data);
+      const response = await getServicos();
+      console.log(response)
+      setServicos(response.data);
       setLoading(false);
     })();
   }, []);
