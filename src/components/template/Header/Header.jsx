@@ -27,7 +27,7 @@ function Header() {
         <Navbar.Collapse className="justify-content-end">
           {!authenticated && (
             <Nav className="justify-content-center">
-              <Nav.Link href="/signin" className="bot-nav">Registre-se</Nav.Link>
+              <Nav.Link href="/register" className="bot-nav">Registre-se</Nav.Link>
               <Nav.Link href="/login" className="bot-nav">Entrar</Nav.Link>
             </Nav>
           )}

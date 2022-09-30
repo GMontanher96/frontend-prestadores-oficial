@@ -19,33 +19,48 @@ import PerfilDetailsUserPage from "./pages/perfil/DetailsUser";
 import PerfilServicoCadastroPage from "./pages/perfil/PerfilServicoCadastroPage";
 import ServicoPage from "./pages/ServicoPage";
 import PrivateLayout from "./layouts/PrivateLayout";
+import { HomeProvider } from "./contexts/Home";
 
 const AppRoutes = () => {
-  
   return (
     <Router>
       <AuthProvider>
-        <Routes>
-          <Route exact path="/login" element={<Login />} />
-          <Route path="/signin" element={<Signin />} />
+        <HomeProvider>
+          <Routes>
+            <Route exact path="/login" element={<Login />} />
+            <Route path="/register" element={<Signin />} />
 
-          <Route exact path="/" element={<PublicLayout />}>
-            <Route path="" element={<Home />} />
-            <Route exact path="prestador" element={<Prestador />} />
-            <Route exact path="servicos" element={<ServicoPage />} />
-          </Route>
+            <Route exact path="/" element={<PublicLayout />}>
+              <Route path="" element={<Home />} />
+              <Route exact path="prestador" element={<Prestador />} />
+              <Route exact path="servicos" element={<ServicoPage />} />
+            </Route>
 
-          <Route exact path="/perfil" element={<PrivateLayout />}>
-            <Route path="" element={<PerfilPage />} />
-            <Route exact path="servicos" element={<PerfilServicoPage />} />
-            <Route exact path="servicos/novo" element={<PerfilServicoCadastroPage />} />
-          </Route>
+            <Route exact path="/perfil" element={<PrivateLayout />}>
+              <Route path="" element={<PerfilPage />} />
+              <Route exact path="servicos" element={<PerfilServicoPage />} />
+              <Route
+                exact
+                path="servicos/novo"
+                element={<PerfilServicoCadastroPage />}
+              />
+            </Route>
 
-          <Route exact path="/perfil" element={<PrivateLayout />}>
-            <Route exact path="usuario" element={<PerfilDetailsUserPage />} />
-          </Route>
-   
-        </Routes>
+            <Route exact path="/perfil" element={<PrivateLayout />}>
+              <Route exact path="usuario" element={<PerfilDetailsUserPage />} />
+              <Route
+                exact
+                path="usuario/:id"
+                element={<PerfilDetailsUserPage />}
+              />
+              <Route
+                exact
+                path="usuario/:id"
+                element={<PerfilDetailsUserPage />}
+              />
+            </Route>
+          </Routes>
+        </HomeProvider>
       </AuthProvider>
     </Router>
   );

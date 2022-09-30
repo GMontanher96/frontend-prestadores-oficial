@@ -1,27 +1,37 @@
 import { Tab, Tabs } from "react-bootstrap";
 import PrestadorList from "./PrestadorList";
 
-import "../pages/Home/Home.css"
+import "../pages/Home/Home.css";
 
 export default function PrestadoresBox({ prestadores }) {
   if (!prestadores) return <div>Carregando ...</div>;
+
+  const tipos = [];
+  prestadores.forEach((prestador) => {
+    const i = tipos.findIndex((tipo) => tipo.tipo == prestador.tipo);
+    if (i < 0) {
+      tipos.push({
+        tipo: prestador.tipo,
+        prestadores: [prestador],
+      });
+    } else {
+      tipos[i].prestadores.push(prestador);
+    }
+  });
+  console.log(tipos);
   return (
     <div className="botaoServ prestadores">
       <Tabs
-        defaultActiveKey="faxina"
+        // defaultActiveKey="faxina"
         id="fill-tab-example"
         className="mb-3"
         fill
       >
-        <Tab eventKey="faxina" title="Faxina">
-          <PrestadorList prestadores={prestadores} />
-        </Tab>
-        <Tab eventKey="pintura" title="Marido de Aluguel">
-          <PrestadorList prestadores={prestadores} />
-        </Tab>
-        <Tab eventKey="manutencao" title="Manutenções">
-          <PrestadorList prestadores={prestadores} />
-        </Tab>
+        {tipos.map((tipo) => (
+          <Tab eventKey={tipo.tipo} title={tipo.tipo}>
+            <PrestadorList prestadores={tipo.prestadores} />
+          </Tab>
+        ))}
       </Tabs>
     </div>
   );

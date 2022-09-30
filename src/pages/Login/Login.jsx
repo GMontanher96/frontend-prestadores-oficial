@@ -50,7 +50,7 @@ const Login = () => {
           <Button type="submit" variant="success">
             Entrar
           </Button>{" "}
-          <Button as={Link} to="/signin" type="button" variant="danger">
+          <Button as={Link} to="/register" type="button" variant="danger">
             Cadastrar
           </Button>{" "}
         </div>

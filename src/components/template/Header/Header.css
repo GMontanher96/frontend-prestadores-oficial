@@ -65,7 +65,6 @@
   .navtt{
     background-image: url(../../../../public/image/navbar.jpg);
     background-size: cover;
-    position: fixed !important;
     z-index: 2;
     width: 100%;
   }
