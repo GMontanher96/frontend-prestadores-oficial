@@ -9,9 +9,9 @@ export default function PerfilServicoCadastroPage() {
 
   const [servico, setUser] = useState(null);
   const [id, setId] = useState([0]);
-  const [UserId, setUserId] = useState([0]);
+  const [user_id, setUserId] = useState([0]);
   const [anuncio, setAnuncio] = useState("");
-  const [nomefantasia, setNomefantasia] = useState("");
+  const [nome_fantasia, setNomeFantasia] = useState("");
   const [cnpj, setCnpj] = useState("");
   const [descricao, setDescricao] = useState("");
   const [disponibilidade, setDisponibilidade] = useState("");
@@ -23,7 +23,7 @@ export default function PerfilServicoCadastroPage() {
   const dataService = {
     id: id,
     anuncio: anuncio,
-    nomefantasia: nomefantasia,
+    nome_fantasia: nome_fantasia,
     cnpj: cnpj,
     descricao: descricao,
     disponibilidade: disponibilidade,
@@ -31,7 +31,7 @@ export default function PerfilServicoCadastroPage() {
     tipo: tipo,
     valor: valor,
     cidade: cidade,
-    UserId: UserId
+    user_id: user_id
   };
 
   const handleSubmit = (e) => {
@@ -40,15 +40,14 @@ export default function PerfilServicoCadastroPage() {
     try {
       axios
         .post(
-          "https://prestaservico-backend.herokuapp.com/servicos",
-          dataService,
+          `https://backend-novo-prestadores.herokuapp.com/users/${user_id}/servicos`, dataService,
           {
             mode: "no-cors",
           }
         )
         .then((res) => alert("SERVIÇO CRIADO COM SUCESSO", res));
       setAnuncio("");
-      setNomefantasia("");
+      setNomeFantasia("");
       setCnpj("");
       setDescricao("");
       setDisponibilidade("");
@@ -78,8 +77,8 @@ export default function PerfilServicoCadastroPage() {
           <Form.Group as={Col} className="m-1">
           <Form.Label>Nome Fantasia </Form.Label>
             <Form.Control
-              value={nomefantasia}
-              onChange={(e) => setNomefantasia(e.target.value)}
+              value={nome_fantasia}
+              onChange={(e) => setNomeFantasia(e.target.value)}
               placeholder="Nome Fantasia"
             />
           </Form.Group>
