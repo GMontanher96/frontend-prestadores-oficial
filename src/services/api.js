@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const api = axios.create({
-    baseURL: 'https://prestaservico-backend.herokuapp.com',
+    baseURL: 'https://backend-novo-prestadores.herokuapp.com/',
 });
 
 export const createSession = async (email, password) => {

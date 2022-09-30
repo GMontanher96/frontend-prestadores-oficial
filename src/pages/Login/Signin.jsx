@@ -11,23 +11,15 @@ const Signin = () => {
 
   const [user, setUser] = useState(null);
   const [id, setId] = useState(0);
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [cpfCnpj, setCpfCnpj] = useState("");
-  const [provider, setProvider] = useState("");
-  const [admin, setAdmin] = useState([0]);
-  const [status, setStatus] = useState([0]);
 
   const dataUser = {
     id: id,
     email: email,
-    cpfCnpj: cpfCnpj,
+    name: name,
     password: password,
-    confirmPassword: confirmPassword,
-    provider: provider,
-    admin: admin,
-    status: status,
   };
 
   const handleSubmit = (e) => {
@@ -35,16 +27,13 @@ const Signin = () => {
 
     try {
       axios
-        .post("https://prestaservico-backend.herokuapp.com/users", dataUser, {
+        .post("https://backend-novo-prestadores.herokuapp.com/register", dataUser, {
           mode: "no-cors",
         })
         .then((res) => alert("USUARIO CRIADO COM SUCESSO", res));
       setEmail("");
-      setCpfCnpj("");
+      setName("");
       setPassword("");
-      setConfirmPassword("");
-      setCpfCnpj("");
-      setProvider("");
     } catch (error) {
       alert("OCORREU UM ERRO AO CRIAR UM USUÁRIO", error);
     }
@@ -55,6 +44,18 @@ const Signin = () => {
     <div id="login" className="container form-sg">
     <div className="logo-esc1" />
       <form className="form form-sg1" onSubmit={handleSubmit}>
+      <div className="field">
+          <label htmlFor="name">Name</label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            placeholder="Digite seu nome"
+            required
+          />
+        </div>
         <div className="field">
           <label htmlFor="email">EMAIL</label>
           <input
@@ -67,18 +68,7 @@ const Signin = () => {
             required
           />
         </div>
-        <div className="field">
-          <label htmlFor="cpfCnpj">CPF/CNPJ</label>
-          <input
-            type="text"
-            name="cpfCnpj"
-            id="cpfCnpj"
-            value={cpfCnpj}
-            onChange={(e) => setCpfCnpj(e.target.value)}
-            placeholder="Digite seu CPF OU CNPJ"
-            required
-          />
-        </div>
+      
         <div className="field">
           <label htmlFor="password">SENHA</label>
           <input
@@ -91,35 +81,8 @@ const Signin = () => {
             required
           />
         </div>
-        <div className="field">
-          <label htmlFor="confirmPassword">CONFIRMAÇÃO DE SENHA</label>
-          <input
-            type="password"
-            name="confirmPassword"
-            id="password"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            placeholder="Confirme sua senha"
-            required
-          />
-        </div>
-        <div className="field">
-          <label htmlFor="provider">PRESTADOR DE SERVIÇO ?</label>
-
-          <select
-            value={provider}
-            class="field"
-            id="provider"
-            onChange={(e) => {
-              setProvider(e.target.value);
-            }}
-            required
-          >
-            <option value={0}>Selecione a opção</option>
-            <option value={1}>SIM</option>
-            <option value={2}>NÃO</option>
-          </select>
-        </div>
+       
+      
         <div className="actions">
           <Button type="submit" variant="success">
             Cadastrar
