@@ -45,7 +45,7 @@ const Signin = () => {
     <div className="logo-esc1" />
       <form className="form form-sg1" onSubmit={handleSubmit}>
       <div className="field">
-          <label htmlFor="name">Name</label>
+          <label htmlFor="name">Nome</label>
           <input
             type="text"
             name="name"
@@ -57,7 +57,7 @@ const Signin = () => {
           />
         </div>
         <div className="field">
-          <label htmlFor="email">EMAIL</label>
+          <label htmlFor="email">E-mail</label>
           <input
             type="email"
             name="email"
@@ -70,7 +70,7 @@ const Signin = () => {
         </div>
       
         <div className="field">
-          <label htmlFor="password">SENHA</label>
+          <label htmlFor="password">Senha</label>
           <input
             type="password"
             name="password"
