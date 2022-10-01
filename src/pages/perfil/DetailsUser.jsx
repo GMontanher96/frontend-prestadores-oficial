@@ -14,6 +14,7 @@ export default function PerfilServicoCadastroPage() {
 
 
   return (
+    <div className="form-detalhes-user">
     <Container>
       <br />
       <h2>Detalhes de Usuário</h2>
@@ -32,5 +33,6 @@ export default function PerfilServicoCadastroPage() {
       </Tab>
     </Tabs>
     </Container>
+    </div>
   );
 }

@@ -70,3 +70,13 @@
     position: fixed !important;
     top: 0px;
   }
+
+  .form-cad-anuncio {
+    position: relative;
+    top: 120px;
+  }
+
+  .form-detalhes-user {
+    position: relative;
+    top: 100px;
+  }
