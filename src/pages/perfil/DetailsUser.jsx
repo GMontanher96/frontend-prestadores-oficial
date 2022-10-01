@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 import FormEndereco from '../../components/form/FormUserEndereco';
+import FormContato from '../../components/form/FormUserContato';
 
 export default function PerfilServicoCadastroPage() {
   const { authenticated, login } = useContext(AuthContext);
@@ -25,6 +26,7 @@ export default function PerfilServicoCadastroPage() {
         <FormEndereco />
       </Tab>
       <Tab eventKey="contato" title="Contato">
+        <FormContato />
       </Tab>
       <Tab eventKey="usuario" title="Usuário" disabled>
       </Tab>
