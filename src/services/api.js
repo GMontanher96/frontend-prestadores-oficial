@@ -12,3 +12,8 @@ export const getServicos = async(data) => {
     return api.get(`/users/${data}/servicos`, { data });
 }
 
+export const getEnderecos = async(user_id) => {
+  return api.get(`/users/${user_id}/enderecos`, { user_id });
+}
+
+

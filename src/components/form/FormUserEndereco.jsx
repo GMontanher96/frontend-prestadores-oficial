@@ -1,6 +1,6 @@
 import { useState } from "react"
 import GridEndereco from "../grid/GridEndereco";
-
+import IconButton from '.././template/iconButton';
 const Endereco = () => {
     const [end, setEnd] = useState({
         endereco: '',
@@ -60,7 +60,9 @@ const Endereco = () => {
                 <button type="submit" className="btn btn-primary">Cadastrar</button>
             </form>
             <hr />
-            <GridEndereco />
+            <GridEndereco cols='12 9 10'>
+               <IconButton style="primary" icon="plus"></IconButton>
+            </GridEndereco>
         </div>
     )
 }

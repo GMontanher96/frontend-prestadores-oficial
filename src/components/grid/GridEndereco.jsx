@@ -1,7 +1,31 @@
 import { Table } from "react-bootstrap";
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
+import { AddressContext } from "../../contexts/AddressAuth";
+import React, { useState, useEffect, useContext, createContext } from "react";
+import axios from "axios";
+import { api, createSession } from "../../services/api";
+
+export const AuthContext = createContext(); // area reservada para gravar certas informações.
 
 const GridEndereco = () => {
+
+  const [ enderecos, setEnderecos ] = useState([]);
+  const [user, setUser] = useState(null);
+
+
+  useEffect(() => {
+    getEnderecos();
+  },[]);
+
+  const getEnderecos = async () => {
+    const { res } = await api.get(`/users/${enderecos.user_id}/enderecos`);
+    console.log("getEnderecos", res);
+    setEnderecos(res);
+  };
+
+
+
+
     return (
         <Table striped bordered hover  responsive="sm">
         <thead>
@@ -17,43 +41,8 @@ const GridEndereco = () => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>teste</td>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-          </tr>
-          <tr>
-            <td>teste</td>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <td>teste</td>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <td>teste</td>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-            <tr>
-            <td>teste</td>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-       
-         <tr>
-             <td>
-            <button className="btn btn-success"><RemoveRedEyeIcon /></button>
-          </td>
-         </tr>
-        </tbody>
+        
+      </tbody>
       </Table>
     )
 }
