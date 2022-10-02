@@ -10,7 +10,7 @@ export default function UserMenu() {
     };
   return (
     <NavDropdown title="Usuário" id="basic-nav-dropdown" className="bot-nav">
-      <NavDropdown.Item href="/perfil/usuario">Detalhes do Usuário</NavDropdown.Item>
+      <NavDropdown.Item href="/perfil/usuario">Configurações</NavDropdown.Item>
       <NavDropdown.Item href="/perfil/servicos/novo">Novo Serviço</NavDropdown.Item>
       <NavDropdown.Item href="/perfil/servicos">Meus serviços</NavDropdown.Item>
       <NavDropdown.Divider />
