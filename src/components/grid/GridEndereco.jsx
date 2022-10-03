@@ -1,31 +1,21 @@
 import { Table } from "react-bootstrap";
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
-import { AddressContext } from "../../contexts/AddressAuth";
+import { AuthContext } from "../../contexts/AuthContext";
 import React, { useState, useEffect, useContext, createContext } from "react";
 import axios from "axios";
 import { api, createSession } from "../../services/api";
 
-export const AuthContext = createContext(); // area reservada para gravar certas informações.
+const { user } = useContext(AuthContext)
 
-const GridEndereco = () => {
+export default function GridEndereco(){
 
   const [ enderecos, setEnderecos ] = useState([]);
-  const [user, setUser] = useState(null);
-
-
-  useEffect(() => {
-    getEnderecos();
-  },[]);
 
   const getEnderecos = async () => {
-    const { res } = await api.get(`/users/${enderecos.user_id}/enderecos`);
-    console.log("getEnderecos", res);
-    setEnderecos(res);
+    await axios.get(`/users/${user.id}/enderecos`).then((endereco) => {
+      setEnderecos(endereco)
+    });
   };
-
-
-
-
     return (
         <Table striped bordered hover  responsive="sm">
         <thead>
@@ -41,10 +31,18 @@ const GridEndereco = () => {
           </tr>
         </thead>
         <tbody>
-        
+        {enderecos.map((end) => (
+          <tr>
+            <td>{end.endereco}</td>
+            <td>{end.bairro}</td>
+            <td>{end.cep}</td>
+            <td>{end.cidade}</td>
+            <td>{end.estado}</td>
+            <td>{end.numero}</td>
+            <td>{end.referencia}</td>
+          </tr>
+        ))}
       </tbody>
       </Table>
     )
 }
-
-export default GridEndereco;
