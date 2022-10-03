@@ -7,9 +7,11 @@ export default function PrestadorCard({ prestador }) {
     <Card className="cardServ p-3">
       <Card.Img className="img-fluid" variant="top" src={prestador.imagem} />
       <Card.Body>
-        <Card.Title>{prestador.nome_fantasia}</Card.Title>
-        <Rating placeholderRating={3.5} readonly />
-        <Card.Text>{prestador.descricao}</Card.Text>
+        Empresa:<Card.Title>{prestador.nome_fantasia}</Card.Title>
+        Descrição:<Card.Text>{prestador.descricao}</Card.Text>
+        Cidade:<Card.Text>{prestador.cidade}</Card.Text>
+        Disponibilidade:<Card.Text>{prestador.disponibilidade}</Card.Text>
+        Avaliação:<Rating placeholderRating={3.5} readonly />
       </Card.Body>
       <Card.Body>
         <Button className="btn btn-secondary btn-sm disabled" variant="primary">

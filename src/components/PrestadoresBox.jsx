@@ -21,6 +21,7 @@ export default function PrestadoresBox({ prestadores }) {
   console.log(tipos);
   return (
     <div className="botaoServ prestadores">
+      <h2>Destaques do Site!</h2>
       <Tabs
         // defaultActiveKey="faxina"
         id="fill-tab-example"
