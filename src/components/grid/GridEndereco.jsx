@@ -9,20 +9,21 @@ import { api, createSession } from "../../services/api";
 export default function GridEndereco(){
   const { user } = useContext(AuthContext)
 
-  const [ enderecos, setEnderecos ] = useState([]);
-  
+  const [ enderecos, setEnderecos ] = useState();
 
-     // eslint-disable-next-line react-hooks/rules-of-hooks
-     useEffect( () => {
-     axios.get(`https://backend-novo-prestadores.herokuapp.com/users/1/enderecos`).then((endereco) => {
-        setEnderecos(endereco)
-      });
-    }, [enderecos]);
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await axios(
+        `https://backend-novo-prestadores.herokuapp.com/users/1/enderecos`,
+      );
+      setEnderecos(result.data);
+    };
+    fetchData();
+  }, []);
 
  if(!enderecos) {
   return "Carregando endereços"
  }
- console.log(enderecos.bairro)
     return (
         <Table striped bordered hover  responsive="sm">
         <thead>
@@ -39,7 +40,7 @@ export default function GridEndereco(){
         </thead>
         <tbody>
         {enderecos.map((end) => (
-          <tr>
+          <tr key={end.id}>
             <td>{end.endereco}</td>
             <td>{end.bairro}</td>
             <td>{end.cep}</td>
