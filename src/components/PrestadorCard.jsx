@@ -1,5 +1,5 @@
 import { Card, Button } from "react-bootstrap";
-import Rating from "react-rating";
+import { Rate } from 'rsuite';
 
 export default function PrestadorCard({ prestador }) {
   if (!prestador) return <div>Nenhum prestador</div>;
@@ -8,7 +8,7 @@ export default function PrestadorCard({ prestador }) {
       <Card.Img className="img-fluid" variant="top" src={prestador.imagem} />
       <Card.Body>
         <Card.Title>{prestador.nome_fantasia}</Card.Title>
-        <Rating placeholderRating={3.5} readonly />
+        <Rate readOnly defaultValue={3.5} allowHalf />
         <Card.Text>{prestador.descricao}</Card.Text>
       </Card.Body>
       <Card.Body>
