@@ -1,21 +1,28 @@
 import { Table } from "react-bootstrap";
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
-import { AuthContext } from "../../contexts/AuthContext";
+import { AuthContext } from "../../contexts/Auth";
 import React, { useState, useEffect, useContext, createContext } from "react";
 import axios from "axios";
 import { api, createSession } from "../../services/api";
 
-const { user } = useContext(AuthContext)
 
 export default function GridEndereco(){
+  const { user } = useContext(AuthContext)
 
   const [ enderecos, setEnderecos ] = useState([]);
+  
 
-  const getEnderecos = async () => {
-    await axios.get(`/users/${user.id}/enderecos`).then((endereco) => {
-      setEnderecos(endereco)
-    });
-  };
+     // eslint-disable-next-line react-hooks/rules-of-hooks
+     useEffect( () => {
+     axios.get(`https://backend-novo-prestadores.herokuapp.com/users/1/enderecos`).then((endereco) => {
+        setEnderecos(endereco)
+      });
+    }, [enderecos]);
+
+ if(!enderecos) {
+  return "Carregando endereços"
+ }
+ console.log(enderecos.bairro)
     return (
         <Table striped bordered hover  responsive="sm">
         <thead>
