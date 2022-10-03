@@ -1,7 +1,10 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
 import GridEndereco from "../grid/GridEndereco";
 import IconButton from '.././template/iconButton';
+import { ProfileContext } from "../../contexts/Profile";
 const Endereco = () => {
+    const {createEndereco, updateEndereco, deleteEndereco} = useContext(ProfileContext);
+
     const [end, setEnd] = useState({
         endereco: '',
         bairro: '',
@@ -9,22 +12,101 @@ const Endereco = () => {
         cidade: '',
         estado: '',
         numero: '',
-        referencia: ''
+        referencia: '',
     })
 
+    const isNew = !end.id;
+
+    const onEdit = (endereco) => {
+        setEnd(endereco);
+    }
+
+    const onDelete = async (endereco) => {
+        await deleteEndereco(endereco.id);
+    }
+
+    // const dataEndereco = {
+    //     endereco_id: id,
+    //     endereco_endereco: endereco,
+    //     endereco_bairro: bairro,
+    //     endereco_cep: cep,
+    //     endereco_cidade: cidade,
+    //     endereco_estado: estado,
+    //     endereco_numero: numero,
+    //     endereco_referencia: referencia,
+    //     endereco_user_id: user_id
+    //   };
+
+    //   const updateEndereco = (i) => { // metodo de alteração do endereço do usuário
+    //     try {
+    //       axios
+    //         .put(`http://127.0.0.1:8000/api/users/${i.user_id}`, dataUser)
+    //         .then((res) => console.log("success", res));
+    //       setUser_name("");
+    //       setUser_email("");
+    //       setUser_cpf("");
+    //       setUser_password("");
+    //       setUser_password_confirm("");
+    //       setUser_birth_date("");
+    //       setUser_sex("");
+    //       setUser_fone("");
+    //       setUser_fone_whatsapp("");
+    //       setUser_receive_offers("");
+    //       setUser_receive_offers_whatsapp("");
+    //       setUser_status("");
+    //       getUserData();
+    //     } catch (error) {
+    //       console.log(error);
+    //     }
+    //   };
+
+    
+//   const deleteEndereco = () => { // metodo de deletar o endereço do usuário. 
+//     try {
+//       axios
+//         .delete(`http://127.0.0.1:8000/api/users/${i.user_id}`, dataUser)
+//         .then((res) => console.log("success", res));
+//       getUserData();
+//     } catch (error) {
+//       console.log(error);
+//     }
+//   };
+  
+
     const setdata = (e)=> {
-        console.log(e.target.value);
-        const { endereco, value} = e.target;
+        const { name, value} = e.target;
         setEnd((preval)=> {
             return {
                 ...preval, 
-                [endereco]:value
+                [name]:value
             }
         })
     }
+
+    const cadastrar = async (event) => {
+        event.preventDefault();
+
+        if (isNew) {
+            await createEndereco(end);
+        }
+        else {
+            await updateEndereco(end);
+        }
+
+        setEnd({
+            endereco: '',
+            bairro: '',
+            cep: '',
+            cidade: '',
+            estado: '',
+            numero: '',
+            referencia: '',
+        });
+    }
+
     return (
         <div className="container">
-            <form className="mt-4">
+            <form className="mt-4" onSubmit={cadastrar}>
                 <div className="row">
                     <div className="mb-3 col-lg-5 col-md-6 col-12">
                         <label htmlFor="endereco" className="form-label">Endereço</label>
@@ -57,10 +139,10 @@ const Endereco = () => {
                         <input type="text" defaultValue={end.referencia} onChange={setdata} name="referencia" className="form-control" id="referencia" required />
                     </div>
                 </div>
-                <button type="submit" className="btn btn-primary">Cadastrar</button>
+                <button type="submit" className="btn btn-primary">{isNew ? "Cadastrar" : "Alterar" }</button>
             </form>
             <hr />
-            <GridEndereco cols='12 9 10'>
+            <GridEndereco cols='12 9 10' onEdit={onEdit} onDelete={onDelete}>
                <IconButton style="primary" icon="plus"></IconButton>
             </GridEndereco>
         </div>
