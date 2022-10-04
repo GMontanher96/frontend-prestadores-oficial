@@ -23,7 +23,7 @@ export const ProfileProvider = ({ children }) => {
   };
 
   const updateEndereco = async (endereco) => {
-    const response = await api.post(`/users/${user.id}/enderecos/${endereco.id}`, endereco);
+    const response = await api.put(`/users/${user.id}/enderecos/${endereco.id}`, endereco);
     await getEnderecos();
     return response.data;
   };
