@@ -1,18 +1,19 @@
-const express = require('express'); 
+const express = require('express')
+const serveStatic = require('server-static')
+const path = require('path')
 
-const app = express();
-const path = require('path');
+const app = express()
 
-const port = process.env.PORT || 5000;
+app.use('/', serveStatic(path.join(__dirname, '/build')))
 
-if (process.env.NODE_ENV === "production") {
-    app.use(express.static('build'));
-    app.get('*', (req, res) => {
-        req.sendFile(path.resolve(__dirname, 'build', 'index.html'));
-    })
-}
 
-app.listen(port, (err) => {
-    if (err) return console.log(err);
-    console.log('Server running on port: ', port)
+app.get(/.*/, function(req, res) {
+    res.sendFile(path.join(__dirname, '/dist/index.html'))
 })
+
+
+const port = process.env.PORT || 8080
+
+app.listen(port)
+
+console.log(`app is listening on port: ${port}`)
