@@ -32,7 +32,7 @@ export default function GridServico({ onEdit, onDelete }) {
         {servicos.map((serv) => (
           <tr key={serv.id}>
             <td>{serv.anuncio}</td>
-            <td>{serv.nomefantasia}</td>
+            <td>{serv.nome_fantasia}</td>
             <td>{serv.cnpj}</td>
             <td>{serv.descricao}</td>
             <td>{serv.avaliacao}</td>
