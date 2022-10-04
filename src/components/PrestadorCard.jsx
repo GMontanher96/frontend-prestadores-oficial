@@ -1,5 +1,7 @@
 import { Card, Button } from "react-bootstrap";
 import { Rate } from 'rsuite';
+import Accordion from 'react-bootstrap/Accordion';
+
 
 export default function PrestadorCard({ prestador }) {
   if (!prestador) return <div>Nenhum prestador</div>;
@@ -14,9 +16,15 @@ export default function PrestadorCard({ prestador }) {
         Avaliação:<Rate readOnly defaultValue={3.5} allowHalf />
       </Card.Body>
       <Card.Body>
-        <Button className="btn btn-secondary btn-sm disabled" variant="primary">
-          Saiba mais
-        </Button>
+      <Accordion defaultActiveKey="1">
+      <Accordion.Item eventKey="1">
+        <Accordion.Header>Detalhes</Accordion.Header>
+        <Accordion.Body>
+        CNPJ:<Card.Text>{prestador.cnpj}</Card.Text>
+        Tipo de Serviço:<Card.Text>{prestador.tipo}</Card.Text>
+        </Accordion.Body>
+      </Accordion.Item>
+    </Accordion>
       </Card.Body>
     </Card>
   );

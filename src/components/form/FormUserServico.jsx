@@ -2,6 +2,7 @@ import { useContext, useState } from "react"
 import GridServico from "../grid/GridServico";
 import IconButton from '.././template/iconButton';
 import { ProfileContext } from "../../contexts/Profile";
+import MessageSuccess from "../../components/toasts/MessageSuccess";
 const Servico = () => {
     const {createServico, updateServico, deleteServico} = useContext(ProfileContext);
 
@@ -25,6 +26,7 @@ const Servico = () => {
 
     const onDelete = async (servico) => {
         await deleteServico(servico.id);
+        handleClear();
     }
 
     const setdata = (e)=> {
@@ -42,31 +44,12 @@ const Servico = () => {
 
         if (isNew) {
             await createServico(serv);
-            setServ({
-                anuncio: '',
-                nome_fantasia: '',
-                cnpj: '',
-                descricao: '',
-                avaliacao: '',
-                disponibilidade: '',
-                tipo: '',
-                valor: '',
-                cidade: '',
-                });
+            handleClear(event);
+            <MessageSuccess />
         }
         else {
             await updateServico(serv);
-            setServ({
-                anuncio: '',
-                nome_fantasia: '',
-                cnpj: '',
-                descricao: '',
-                avaliacao: '',
-                disponibilidade: '',
-                tipo: '',
-                valor: '',
-                cidade: '',
-                });
+            handleClear(event);
         }
 
         setServ({
@@ -80,6 +63,22 @@ const Servico = () => {
         valor: '',
         cidade: '',
         });
+    }
+
+    const handleClear = async (event) => {
+        event.preventDefault();
+
+        setServ({
+            anuncio: '',
+            nome_fantasia: '',
+            cnpj: '',
+            descricao: '',
+            avaliacao: '',
+            disponibilidade: '',
+            tipo: '',
+            valor: '',
+            cidade: '',
+            });
     }
 
     return (
@@ -127,6 +126,7 @@ const Servico = () => {
                     </div>
                 </div>
                 <button type="submit" className="btn btn-primary">{isNew ? "Cadastrar" : "Alterar" }</button>
+                <button type="button" className="btn btn-warning" onClick={handleClear}>Limpar</button>
             </form>
             <hr />
             <GridServico cols='12 9 10' onEdit={onEdit} onDelete={onDelete}>

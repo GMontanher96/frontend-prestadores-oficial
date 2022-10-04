@@ -23,7 +23,25 @@ const Endereco = () => {
 
     const onDelete = async (endereco) => {
         await deleteEndereco(endereco.id);
+        handleClear();
     }
+
+    const handleClear = async (event) => {
+        event.preventDefault();
+
+        setEnd({
+            anuncio: '',
+            nome_fantasia: '',
+            cnpj: '',
+            descricao: '',
+            avaliacao: '',
+            disponibilidade: '',
+            tipo: '',
+            valor: '',
+            cidade: '',
+            });
+    }
+
 
 
 
@@ -42,9 +60,12 @@ const Endereco = () => {
 
         if (isNew) {
             await createEndereco(end);
+            handleClear(event);
+
         }
         else {
             await updateEndereco(end);
+            handleClear(event);
         }
 
         setEnd({
@@ -94,6 +115,7 @@ const Endereco = () => {
                     </div>
                 </div>
                 <button type="submit" className="btn btn-primary">{isNew ? "Cadastrar" : "Alterar" }</button>
+                <button type="button" className="btn btn-warning" onClick={handleClear}>Limpar</button>
             </form>
             <hr />
             <GridEndereco cols='12 9 10' onEdit={onEdit} onDelete={onDelete}>

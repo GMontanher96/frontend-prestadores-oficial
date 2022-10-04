@@ -18,6 +18,7 @@ const Contato = () => {
 
   const onDelete = async (contato) => {
     await deleteContato(contato.id);
+    handleClear();
   };
 
   const setdata = (e) => {
@@ -35,8 +36,10 @@ const Contato = () => {
 
     if (isNew) {
       await createContato(con);
+      handleClear(event);
     } else {
       await updateContato(con);
+      handleClear(event);
     }
 
     setCon({
@@ -44,6 +47,23 @@ const Contato = () => {
       celular: "",
     });
   };
+
+  const handleClear = async (event) => {
+    event.preventDefault();
+
+    setCon({
+        anuncio: '',
+        nome_fantasia: '',
+        cnpj: '',
+        descricao: '',
+        avaliacao: '',
+        disponibilidade: '',
+        tipo: '',
+        valor: '',
+        cidade: '',
+        });
+}
+
   return (
     <div className="container">
       <form className="mt-4" onSubmit={cadastrar}>
@@ -82,6 +102,7 @@ const Contato = () => {
         <button type="submit" className="btn btn-primary">
           {isNew ? "Cadastrar" : "Alterar"}
         </button>
+        <button type="button" className="btn btn-warning" onClick={handleClear}>Limpar</button>
       </form>
       <hr />
       <GridContato cols="12 9 10" onEdit={onEdit} onDelete={onDelete}>
