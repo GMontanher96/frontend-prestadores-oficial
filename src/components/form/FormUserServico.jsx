@@ -1,30 +1,31 @@
 import { useState } from "react"
-import GridServico from "../../components/grid/GridServico";
+import GridServico from "../grid/GridServico";
 
 const Servico = () => {
     const [serv, setServ] = useState({
-        endereco: '',
-        bairro: '',
-        cep: '',
-        cidade: '',
-        estado: '',
-        numero: '',
-        referencia: ''
+        anuncio: '',
+        nome_fantasia: '',
+        cnpj: '',
+        descricao:'',
+        avaliacao: '',
+        disponibilidade: '',
+        tipo:'',
+        valor:'',
+        cidade: ''
     })
 
     const setdata = (e)=> {
         console.log(e.target.value);
-        const { endereco, value} = e.target;
+        const { servico, value} = e.target;
         setServ((preval)=> {
             return {
                 ...preval, 
-                [endereco]:value
+                [servico]:value
             }
         })
     }
     return (
         <div className="container">
-                  <h2>Cadastro de Serviço</h2>
             <form className="mt-4">
                 <div className="row">
                     <div className="mb-3 col-lg-6 col-md-6 col-12">
@@ -67,7 +68,7 @@ const Servico = () => {
                 <button type="submit" className="btn btn-primary">Cadastrar</button>
             </form>
             <hr />
-            <GridServico/>
+            <GridServico />
         </div>
     )
 }
