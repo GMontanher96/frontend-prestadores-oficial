@@ -1,26 +1,26 @@
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Pesquisa from "../components/Pesquisa";
-import PrestadoresBox from "../components/PrestadoresBox";
+import PrestadorList from "../components/PrestadorList";
+import { HomeContext } from "../contexts/Home";
 
 export default function ServicoPage() {
-  const [prestadores, setPrestadores] = useState([
-    {
-      nome: "José da Silva",
-      imagem: "",
-    },
-    {
-      nome: "José da Silva 2",
-      imagem: "",
-    },
-    {
-      nome: "José da Silva 2",
-      imagem: "",
-    },
-  ]);
+  const { getServicos, servicos } = useContext(HomeContext);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    getServicos().then(() => {
+      setLoading(false);
+    })
+  }, []);
+
+  if (loading) {
+    return <div className="loading">Carregando dados....</div>;
+  }
+
   return (
     <>
       <Pesquisa />
-      <PrestadoresBox prestadores={prestadores} />
+      <PrestadorList prestadores={servicos} />
     </>
   );
 }

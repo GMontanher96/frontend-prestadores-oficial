@@ -6,7 +6,10 @@ const servico = [
   'pintura',
   'manutenção',
   'construção',
-  'reforma'
+  'reforma',
+  'reparo',
+  'limpeza',
+  'bauru'
 ];
 
 export default function Pesquisa () {
