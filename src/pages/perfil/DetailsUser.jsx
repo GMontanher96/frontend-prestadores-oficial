@@ -7,12 +7,14 @@ import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 import FormEndereco from "../../components/form/FormUserEndereco";
 import FormContato from "../../components/form/FormUserContato";
+import FormServico from "../../components/form/FormUserServico";
+
 
 export default function PerfilServicoCadastroPage() {
   const { authenticated, login } = useContext(AuthContext);
 
   return (
-    <div className="form-detalhes-user">
+    <div>
       <Container>
         <br />
         <h2>Detalhes de Usuário</h2>
@@ -41,7 +43,9 @@ export default function PerfilServicoCadastroPage() {
             </Col>
             <Col sm={9}>
               <Tab.Content>
-                <Tab.Pane eventKey="servicos"></Tab.Pane>
+                <Tab.Pane eventKey="servicos">
+                  <FormServico />
+                </Tab.Pane>
                 <Tab.Pane eventKey="endereco">
                   <FormEndereco />
                 </Tab.Pane>
