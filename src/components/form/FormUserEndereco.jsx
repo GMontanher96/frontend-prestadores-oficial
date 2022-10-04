@@ -25,53 +25,7 @@ const Endereco = () => {
         await deleteEndereco(endereco.id);
     }
 
-    // const dataEndereco = {
-    //     endereco_id: id,
-    //     endereco_endereco: endereco,
-    //     endereco_bairro: bairro,
-    //     endereco_cep: cep,
-    //     endereco_cidade: cidade,
-    //     endereco_estado: estado,
-    //     endereco_numero: numero,
-    //     endereco_referencia: referencia,
-    //     endereco_user_id: user_id
-    //   };
 
-    //   const updateEndereco = (i) => { // metodo de alteração do endereço do usuário
-    //     try {
-    //       axios
-    //         .put(`http://127.0.0.1:8000/api/users/${i.user_id}`, dataUser)
-    //         .then((res) => console.log("success", res));
-    //       setUser_name("");
-    //       setUser_email("");
-    //       setUser_cpf("");
-    //       setUser_password("");
-    //       setUser_password_confirm("");
-    //       setUser_birth_date("");
-    //       setUser_sex("");
-    //       setUser_fone("");
-    //       setUser_fone_whatsapp("");
-    //       setUser_receive_offers("");
-    //       setUser_receive_offers_whatsapp("");
-    //       setUser_status("");
-    //       getUserData();
-    //     } catch (error) {
-    //       console.log(error);
-    //     }
-    //   };
-
-    
-//   const deleteEndereco = () => { // metodo de deletar o endereço do usuário. 
-//     try {
-//       axios
-//         .delete(`http://127.0.0.1:8000/api/users/${i.user_id}`, dataUser)
-//         .then((res) => console.log("success", res));
-//       getUserData();
-//     } catch (error) {
-//       console.log(error);
-//     }
-//   };
-  
 
     const setdata = (e)=> {
         const { name, value} = e.target;

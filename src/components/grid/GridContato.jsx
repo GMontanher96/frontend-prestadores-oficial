@@ -1,55 +1,43 @@
-import { Table } from "react-bootstrap";
-import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
+import { Button, Table } from "react-bootstrap";
+import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
+import React, { useState, useEffect, useContext, createContext } from "react";
+import { ProfileContext } from "../../contexts/Profile";
 
-const GridContato = () => {
-    return (
-        <Table striped bordered hover  responsive="sm">
-        <thead>
-          <tr>
-            <th>Telefone</th>
-            <th>Celular</th>              
+export default function Contato({ onEdit, onDelete }) {
+  const {contatos, getContatos} = useContext(ProfileContext);
+
+  useEffect(() => {
+    getContatos();
+  }, []);
+
+  if (!contatos) {
+    return "Carregando contatos..";
+  }
+  return (
+    <Table striped bordered hover responsive="sm">
+      <thead>
+        <tr>
+          <th>Telefone</th>
+          <th>Celular</th>
         </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>teste</td>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-          </tr>
-          <tr>
-            <td>teste</td>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <td>teste</td>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <td>teste</td>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-            <tr>
-            <td>teste</td>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
+      </thead>
+      <tbody>
+        {contatos.map((con) => (
+          <tr key={con.id}>
+            <td>{con.telefone}</td>
+            <td>{con.celular}</td>
        
-         <tr>
-             <td>
-            <button className="btn btn-success"><RemoveRedEyeIcon /></button>
-          </td>
-         </tr>
-        </tbody>
-      </Table>
-    )
+            <td>
+              <Button variant="warning" className="mr-2" onClick={() => onEdit(con)}>
+                <i className="fa fa-edit"></i>
+              </Button>
+              <Button variant="danger" className="mr-2" onClick={() => onDelete(con)}>
+                <i className="fa fa-trash"></i>
+              </Button>
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </Table>
+  );
 }
-
-export default GridContato;
